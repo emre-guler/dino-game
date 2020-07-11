@@ -1,0 +1,8 @@
+{
+  "engine": "cocos-creator-js",
+  "packages": "packages",
+  "name": "ShooterGame",
+  "id": "f5343417-e3dc-485f-90c4-39dd01179a6c",
+  "version": "2.4.0",
+  "isNew": false
+}
