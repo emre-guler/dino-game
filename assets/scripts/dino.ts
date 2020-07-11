@@ -3,21 +3,23 @@ const {ccclass, property} = cc._decorator;
 @ccclass
 export default class NewClass extends cc.Component {
     // Properties
+
     @property
-    jumpHeight: number = 10;
+    jumpHeight: number = 110;
     @property
-    dinoY: number = -282;
-    @property
-    dinoAccJump: number = 10;
+    dinoFallSpeed: number = 3;
 
     // Custom Methods: 
 
     dinoJump = () => {
-        this.dinoY = this.node.y + 100;
-        this.node.y = this.dinoY;
+        let newCoordinate = {
+            x: this.node.x,
+            y: this.node.y + this.jumpHeight
+        }
+        this.node.y = newCoordinate.y;
     }
 
-    onKeyDownPress = (event) => {
+    onKeyUpPress = (event) => {
         switch(event.keyCode) {
             case cc.macro.KEY.space:
                 this.dinoJump();
@@ -29,7 +31,7 @@ export default class NewClass extends cc.Component {
     
     onLoad = () => {
         // Settings before the game load, physics, sound engine...
-        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDownPress, this)
+        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyUpPress, this);
     }
      
     start = () => {
@@ -38,7 +40,6 @@ export default class NewClass extends cc.Component {
 
     update = (dt) => {
         // 60 frame per second loop
-        console.log(this.node.y);
-        this.dinoY > -282 ? this.node.y = this.node.y - 90  : null;
+        this.node.y > -282 ? this.node.y = this.node.y - this.dinoFallSpeed : null;
     }
 }
