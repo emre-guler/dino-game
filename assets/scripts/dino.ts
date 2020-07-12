@@ -15,7 +15,7 @@ export default class NewClass extends cc.Component {
         let newCoordinate = {
             x: this.node.x,
             y: this.node.y + this.jumpHeight
-        }
+        };
         this.node.y = newCoordinate.y;
     }
 
@@ -40,6 +40,6 @@ export default class NewClass extends cc.Component {
 
     update = (dt) => {
         // 60 frame per second loop
-        this.node.y > -282 ? this.node.y = this.node.y - this.dinoFallSpeed : null;
+        this.node.y > -290 ? this.node.y = this.node.y - this.dinoFallSpeed : null;
     }
 }
