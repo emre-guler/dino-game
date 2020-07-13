@@ -10,7 +10,10 @@ export default class NewClass extends cc.Component {
     ground: cc.Node = null; // Ground
     @property(cc.Node) 
     dino: cc.Node = null; // Dino 
-    
+    @property(cc.Label)
+    score: cc.Label = null;
+    playerScore: number = 0;
+
     // Custom Methods: 
 
     spawnNewCactus = () => {
@@ -22,6 +25,11 @@ export default class NewClass extends cc.Component {
         this.node.addChild(newCactus);
         newCactus.group = "cactus";
         newCactus.setPosition(coordinate.x, coordinate.y);
+    }
+
+    scoreUp = () => {
+        this.playerScore += 1;
+        this.score.string = `Score: ${this.playerScore}`;
     }
 
     // Life-Cycle Methods: 

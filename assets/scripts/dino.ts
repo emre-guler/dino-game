@@ -5,7 +5,7 @@ export default class NewClass extends cc.Component {
     // Properties
 
     @property
-    jumpHeight: number = 110;
+    jumpHeight: number = 170;
     @property
     dinoFallSpeed: number = 3;
 
