@@ -19,7 +19,7 @@ export default class NewClass extends cc.Component {
         this.node.y = newCoordinate.y;
     }
 
-    onKeyUpPress = (event) => {
+    onKeyDownPress = (event) => {
         switch(event.keyCode) {
             case cc.macro.KEY.space:
                 this.dinoJump();
@@ -31,7 +31,7 @@ export default class NewClass extends cc.Component {
     
     onLoad = () => {
         // Settings before the game load, physics, sound engine...
-        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyUpPress, this);
+        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDownPress, this);
     }
      
     start = () => {
