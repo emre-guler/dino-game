@@ -20,7 +20,6 @@ export default class NewClass extends cc.Component {
         };
         let newCactus = cc.instantiate(this.cactusPrefab);
         this.node.addChild(newCactus);
-        newCactus.addComponent(cc.BoxCollider);
         newCactus.group = "cactus";
         newCactus.setPosition(coordinate.x, coordinate.y);
     }
